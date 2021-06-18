@@ -8,15 +8,6 @@ import configureStore from "./store/configureStore";
 const store = configureStore();
 window.store = store;
 
-store.dispatch((dispatch) => {
-  setTimeout(() => {
-    dispatch({
-      type: "courses/courseAdded",
-      payload: { title: "My new Course" },
-    });
-  }, 3000);
-});
-
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
