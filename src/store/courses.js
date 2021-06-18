@@ -1,12 +1,12 @@
+import { createSelector } from "reselect";
 import { createSlice } from "@reduxjs/toolkit";
-import { generate as id } from "shortid";
 
 const slice = createSlice({
   name: "courses",
   initialState: [],
   reducers: {
     courseAdded: (state, action) => {
-      state.push({ id: id(), ...action.payload });
+      state.push(action.payload);
     },
   },
 });
@@ -14,5 +14,16 @@ const slice = createSlice({
 export default slice.reducer;
 export const { courseAdded } = slice.actions;
 
-export const reactCoursesSelector = (state) =>
-  state.entities.courses.filter((c) => c.title.includes("React"));
+/* 
+  createSelector(
+      selector1,
+      selector2,
+      selector3,
+      (selector1, selector2, selector3) => 
+  )
+*/
+
+export const reactCoursesSelector = createSelector(
+  (state) => state.entities.courses,
+  (courses) => courses.filter((c) => c.title.includes("React"))
+);
