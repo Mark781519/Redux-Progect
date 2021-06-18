@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { courseAdded } from "../../store/courses";
 
 const initialCourse = {
   title: "",
@@ -7,6 +9,9 @@ const initialCourse = {
 const CoursesPage = () => {
   const [course, setCourse] = useState(initialCourse);
 
+  const dispatch = useDispatch();
+  const courses = useSelector((state) => state.entities.courses);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCourse((prev) => ({ ...prev, [name]: value }));
@@ -14,7 +19,8 @@ const CoursesPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(course);
+    dispatch(courseAdded(course));
+    setCourse(initialCourse);
   };
 
   return (
@@ -40,6 +46,9 @@ const CoursesPage = () => {
           </div>
         </div>
       </form>
+
+      {courses &&
+        courses.map((course) => <p key={course.id}>{course.title}</p>)}
     </div>
   );
 };
