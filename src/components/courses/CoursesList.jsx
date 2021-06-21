@@ -2,7 +2,7 @@ import { memo } from "react";
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 
-const CoursesList = ({ courses }) => {
+const CoursesList = ({ courses, handleDelete }) => {
   if (!courses.length) {
     return null;
   }
@@ -16,6 +16,7 @@ const CoursesList = ({ courses }) => {
           <th>Title</th>
           <th>Author</th>
           <th>Category</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -27,6 +28,14 @@ const CoursesList = ({ courses }) => {
             </td>
             <td>{course.authorName}</td>
             <td>{course.category}</td>
+            <td>
+              <button
+                onClick={() => handleDelete(course)}
+                className="btn btn-outline-danger"
+              >
+                delete course
+              </button>
+            </td>
           </tr>
         ))}
       </tbody>

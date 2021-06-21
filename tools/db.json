@@ -2,7 +2,7 @@
   "courses": [
     {
       "id": 1,
-      "title": "Front end 1234",
+      "title": "Front end  changed",
       "slug": "front-end",
       "authorId": 1,
       "category": "frontend",
@@ -63,22 +63,6 @@
       "slug": "framework-laravel",
       "authorId": 2,
       "category": "backend"
-    },
-    {
-      "id": 10,
-      "title": "Framework Symphony",
-      "slug": "framework-symphony",
-      "authorId": 2,
-      "category": "backend"
-    },
-    {
-      "title": "test 12345",
-      "id": 11,
-      "authorId": 1,
-      "category": "frontend",
-      "createdAt": 1624036264411,
-      "slug": "test",
-      "authorName": "Adam Clark"
     }
   ],
   "authors": [
